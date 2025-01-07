@@ -27,7 +27,7 @@ This project is a React-based web application that utilizes **Tailwind CSS** for
 - **Prettier**: For automatic code formatting.
 
 ---
-[## **Link to view the project online : **][1]
+[ **😎Link to view the project online  **][1]
 
 [1]: https://hoobank.liara.run/
 ## **Installation and Setup**
