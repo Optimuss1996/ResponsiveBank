@@ -27,10 +27,9 @@ This project is a React-based web application that utilizes **Tailwind CSS** for
 - **Prettier**: For automatic code formatting.
 
 ---
-[Link Text][1]
+[## **Link to view the project online : **][1]
 
-[1]: https://www.google.com
-
+[1]: https://hoobank.liara.run/
 ## **Installation and Setup**
 Follow the steps below to set up the project locally:
 
@@ -74,13 +73,6 @@ yarn preview
 - **Framer Motion Animations**:
   - Use `motion` components for animated elements.
   - Leverage `useAnimation`, `variants`, and `transition` for advanced animations.
-
-
----
-
-## **Link to view the project online : **
-
-[1]: https://hoobank.liara.run/
 
 ---
 
