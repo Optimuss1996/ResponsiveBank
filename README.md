@@ -27,6 +27,9 @@ This project is a React-based web application that utilizes **Tailwind CSS** for
 - **Prettier**: For automatic code formatting.
 
 ---
+[Link Text][1]
+
+[1]: https://www.google.com
 
 ## **Installation and Setup**
 Follow the steps below to set up the project locally:
