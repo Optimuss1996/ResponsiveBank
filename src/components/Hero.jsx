@@ -1,7 +1,18 @@
+import { useRef } from "react";
 import styles from "../style";
 import { discount, robot } from "../assets";
 import GetStarted from "./GetStarted";
+import { motion, useAnimationFrame } from "framer-motion";
+
 function Hero() {
+  const ref = useRef(null);
+
+  useAnimationFrame((t) => {
+    const rotate = Math.sin(t / 10000) * 10;
+    const y = (1 + Math.sin(t / 1000)) * -50;
+    ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`;
+  });
+
   return (
     <section
       id="home"
@@ -21,17 +32,33 @@ function Hero() {
         </div>
 
         <div className=" flex flex-row justify-between items-center w-full">
-          <h1 className=" flex-1 font-poppins font-semibold text-[52px] ss:text-[72px]  text-white leading-[75px] ss:leading-[100px]">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }} // Start state
+            animate={{ opacity: 1, y: 0 }} // End state
+            transition={{
+              duration: 1.5, // Animation duration
+              delay: 0.4, // Delay before animation starts
+            }}
+            className=" flex-1 font-poppins font-semibold text-[52px] ss:text-[72px]  text-white leading-[75px] ss:leading-[100px]"
+          >
             The Next <br className=" hidden sm:block" /> {"  "}
             <span className=" text-gradient">Generation </span>
-          </h1>
+          </motion.h1>
           <div className=" hidden ss:flex mr-0 md:mr-4 ">
             <GetStarted />
           </div>
         </div>
-        <h1 className=" w-full font-poppins font-semibold text-[52px] ss:text-[68px]  text-white leading-[75px] ss:leading-[100px]">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }} // Start state
+          animate={{ opacity: 1, y: 0 }} // End state
+          transition={{
+            duration: 1.5, // Animation duration
+            delay: 0.4, // Delay before animation starts
+          }}
+          className=" w-full font-poppins font-semibold text-[52px] ss:text-[68px]  text-white leading-[75px] ss:leading-[100px]"
+        >
           Payment Method.
-        </h1>
+        </motion.h1>
         <p
           className={`max-w-[470px] ${styles.paragraph} text-white font-poppins mt-4`}
         >
@@ -40,7 +67,9 @@ function Hero() {
           annual fees.
         </p>
       </main>
+      <div className="block md:hidden h-20 w-full"></div>
       <main
+        ref={ref}
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative `}
       >
         <img

@@ -1,8 +1,18 @@
+import { useRef } from "react";
 import styles, { layout } from "../style";
 import { card } from "../assets";
 import Button from "./Button";
+import { useAnimationFrame } from "framer-motion";
 
 function CardDeal() {
+  const ref = useRef(null);
+
+  useAnimationFrame((t) => {
+    const rotate = Math.sin(t / 10000) * 10;
+    const y = (1 + Math.sin(t / 1000)) * -50;
+    ref.current.style.transform = `translateY(${y}px) rotateX(${rotate}deg) rotateY(${rotate}deg)`;
+  });
+
   return (
     <section className={`${layout.section}`}>
       <div className={`${layout.sectionInfo}`}>
@@ -16,7 +26,9 @@ function CardDeal() {
         </p>
         <Button styles={"mt-10"} />
       </div>
-      <div className={`${layout.sectionImg}`}>
+      <div className="block md:hidden h-20 w-full"></div>
+
+      <div ref={ref} className={`${layout.sectionImg}`}>
         <img src={card} alt="card" className="w-full h-full" />
       </div>
     </section>
